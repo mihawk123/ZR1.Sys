@@ -791,12 +791,12 @@ let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
 let copy = "ZR1 Team";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
-msg.react(':white_check_mark:')
-.then(() => msg.react(':x:'))
+msg.react('✅')
+.then(() => msg.react('❌'))
 .then(() =>msg.react('?'))
 
-let reaction1Filter = (reaction, user) => reaction.emoji.name === ':white_check_mark:' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === ':x:' && user.id === message.author.id;
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '✅' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '❌' && user.id === message.author.id;
 let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
 let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
 reaction1.on("collect", r => {
@@ -994,7 +994,7 @@ msg.edit(`تم الانتهاء من الامر ${message.guild.members.size}`);
 client.on('message', message => {
       if(message.content === prefix + "hchannel") {
       if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms :x:');
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms ❌');
              message.channel.overwritePermissions(message.guild.id, {
              READ_MESSAGES: false
  })
@@ -1004,7 +1004,7 @@ client.on('message', message => {
 client.on('message', message => {
       if(message.content === prefix + "schannel") {
       if(!message.channel.guild) return;
-      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('❌');
              message.channel.overwritePermissions(message.guild.id, {
              READ_MESSAGES: true
  })
@@ -1085,7 +1085,7 @@ command = command.slice(prefix.length);
 var args = message.content.split(" ").slice(1);
     if(command == "mute") {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**❌ ") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
     let muterole = message.guild.roles.find(`name`, "muted");
     //start of create role
@@ -1129,7 +1129,7 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return mess
 
   let role = message.guild.roles.find (r => r.name === "muted");
   
-  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
+  if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**❌")
 
   await toMute.removeRole(role)
   message.channel.sendMessage("**لقد تم فك الميوت عن شخص بنجاح**:white_check_mark:");
