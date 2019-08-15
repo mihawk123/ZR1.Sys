@@ -27,7 +27,7 @@ const youtube = new YouTube("AIzaSyDUmo-BtB5oQr5Y3RSgYYBMj9rFKMr-W2s");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = '1';
+const prefix = '2';
 var table = require('table').table
 var ti={}  
 ,spee={}
@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['ZR1','by Mihawk'];
+    var setGame = ['1help ZR1','by Mihawk'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -2050,7 +2050,7 @@ if (!points[message.author.id]) points[message.author.id] = {
     points: 0,
   };
   if(!message.guild) return;
-    let id = message.author.id,prefix="1";
+    let id = message.author.id,prefix="2";
     if (spee[id] && (new Date).getTime() - spee[id] < 15*1000) {
         let r = (new Date).getTime() - spee[id];
         r = 15*1000 - r;
