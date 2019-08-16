@@ -2699,7 +2699,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(prefix.length)
 //by ,$ ReBeL ء , ??#4777 'CODES SERVER'
-	if (command === `play`) {
+	if (command === `8lay`) {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('يجب توآجد حضرتك بروم صوتي .');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -2765,7 +2765,7 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
 		serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
 		return undefined;
-	} else if (command === `stop`) {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
+	} else if (command === `7top`) {//by ,$ ReBeL ء , ??#4777 'CODES SERVER'
 		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
 		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لإيقآفه');
 		serverQueue.songs = [];
